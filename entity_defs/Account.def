@@ -1,0 +1,120 @@
+<root>
+	<Properties>
+		<playerName_base>
+			<Type>	UNICODE					</Type>
+			<Flags>	BASE_AND_CLIENT					</Flags>
+			<Persistent>	true						</Persistent>
+		</playerName_base>
+
+		<playerID_base>
+			<Type>	UINT16					</Type>
+			<Flags>	BASE_AND_CLIENT					</Flags>
+			<Persistent>	true						</Persistent>
+		</playerID_base>
+
+		<playerName>
+			<Type>	UNICODE					</Type>
+			<Flags>	ALL_CLIENTS					</Flags>
+			<Persistent>	true						</Persistent>
+		</playerName>
+
+		<playerID>
+			<Type>	UINT16					</Type>
+			<Flags>	ALL_CLIENTS					</Flags>
+			<Persistent>	true						</Persistent>
+		</playerID>
+
+		<isNewPlayer>
+			<Type>		UINT8			</Type>
+			<Flags>		BASE_AND_CLIENT				</Flags>
+			<Persistent>		true				</Persistent>
+			<Default>		1				</Default>
+		</isNewPlayer>
+
+		<roomSeatIndex>
+			<Type>	UINT8				</Type>
+			<Flags>	ALL_CLIENTS			</Flags>
+		</roomSeatIndex>
+
+		<isReady>
+			<Type>	BOOL				</Type>
+			<Flags>	ALL_CLIENTS			</Flags>
+		</isReady>
+
+		<holds>
+			<Type>	MJ_LIST				</Type>
+			<Flags>	OWN_CLIENT			</Flags>
+		</holds>
+
+	</Properties>
+
+	<ClientMethods>
+		<OnReqCreateAvatar>
+			<Arg>	UINT8	</Arg>
+		</OnReqCreateAvatar>
+		<playerLevelRoom>
+		</playerLevelRoom>
+
+		<onGetRoomInfo>
+			<Arg>	ROOM_PUBLIC_INFO	</Arg>
+		</onGetRoomInfo>
+		<game_begin_push>
+		</game_begin_push>
+		<upDataClientRoomInfo>
+			<Arg>	ROOM_PUBLIC_INFO	</Arg>
+		</upDataClientRoomInfo>
+	</ClientMethods>
+
+	<BaseMethods>
+		<reqCreateAvatar>
+			<Exposed/>
+			<Arg>	UNICODE	</Arg>
+		</reqCreateAvatar>
+
+		<onLeaveRoom>
+		</onLeaveRoom>
+
+		<EnterMatchesMatch>
+			<Exposed/>
+		</EnterMatchesMatch>
+
+		<createCell>
+			<Arg>		ENTITYCALL					</Arg>
+		</createCell>
+
+		<reqChangeRoom>
+			<Exposed/>
+		</reqChangeRoom>
+
+		<enterRoomSuccess>
+			<Arg>	SPACE_KEY	</Arg>
+		</enterRoomSuccess>
+
+		<OnTeleport>
+			<Arg>		ENTITYCALL					</Arg>
+		</OnTeleport>
+
+		<changeRoomSeatIndex>
+			<Arg>		UINT8		</Arg>
+			<!-- 座位号 -->
+		</changeRoomSeatIndex>
+	</BaseMethods>
+
+	<CellMethods>
+		<LeaveRoom>
+			<Exposed/>
+		</LeaveRoom>
+		<changeRoomSeatIndex>
+			<Arg>		UINT8		</Arg>
+			<!-- 座位号 -->
+		</changeRoomSeatIndex>
+		
+		<playerReadyStateChange>
+			<Arg>		BOOL		</Arg>
+		</playerReadyStateChange>
+		<game_holds_push>
+			<Arg>		MJ_LIST		</Arg>			
+		</game_holds_push>
+	</CellMethods>
+
+</root>
